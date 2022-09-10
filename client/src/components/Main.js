@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
+import { deleteBook } from '../actions/bookActions'
 
 import Table from './Table'
 
@@ -13,11 +14,13 @@ export default () => {
     navigate("/add")
    }
 
+
+
   return (
     <main>
 
 
-     <Table />
+     <Table  />
     <div class="buttons">
         <button class="add btn" onClick={toAdd}>Add book</button>
     </div>

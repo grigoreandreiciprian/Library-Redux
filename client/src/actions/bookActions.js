@@ -88,8 +88,11 @@ export const updateBook = (book) => async (dispatch,getState) =>{
 
         await data.updateBook(book)
 
-        const books= getState().bookList.books
+        let books= getState().bookList.books
+        
+         books= books.filter(e=> e.id != book.id)
 
+         books.push(book)
         dispatch ({
             type: BOOK_LIST_SUCCESS,
             payload: books
@@ -119,6 +122,8 @@ export const deleteBook = (book) => async (dispatch,getState) =>{
        await data.deleteBook(book)
 
        const books= getState().bookList.books
+
+       books=books.filter(e => e.id != book.id)
 
        dispatch({
         type:BOOK_LIST_SUCCESS,
